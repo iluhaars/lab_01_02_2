@@ -79,6 +79,9 @@ class frien
 	int i;
 	int y;
 	int z;
+	int da;
+	int month;
+	int year;
 public:
 	void vvod()
 	{
@@ -96,8 +99,25 @@ public:
 		if (days_2 == d.mas_day[i])
 			z = i;
 		else i++;
-		days = (d.mas_day[z] - d.mas_day[y]) + ((d.mas_month[z] - d.mas_month[y]) * 30) + ((d.mas_year[z] - d.mas_year[y]) * 365);
-		printf("%d", &days);
+		
+		if (d.mas_day[z] >= d.mas_day[y])
+		{
+			da = d.mas_day[z] - d.mas_day[y];
+		}
+		else da = -(d.mas_day[z] - d.mas_day[y]);
+		if (d.mas_month[z] >= d.mas_month[y])
+		{
+			month = (d.mas_month[z] - d.mas_month[y]) * 30;
+		}
+		else month = -((d.mas_month[z] - d.mas_month[y]) * 30);
+		if (d.mas_year[z] >= d.mas_year[y])
+		{
+			year = (d.mas_year[z] - d.mas_year[y]) * 365;
+		}
+		else year = -((d.mas_year[z] - d.mas_year[y]) * 365);
+		days = da + month + year;
+		printf("количество дней между событиями: ");
+		printf("%d\n", &days);
 	}
 }s2;
 
